@@ -1,0 +1,301 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --redSuit: red;
+    --blackSuit: black;
+}
+#root {
+    height: 100vh;
+}
+body {
+    user-select: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../images/bg.jpg);
+}
+
+.modalStart {
+    height: 100vh;
+    display: flex;
+    margin-top: 0vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.modalStart img {
+    position: fixed;
+    z-index: -1;
+}
+.modalStart #start {
+    color: white;
+    font-size: 34px;
+    font-weight: bold;
+    padding-top: 120px;
+}
+
+.modalStart button {
+    background: blue;
+    position: absolute;
+    font-size: 34px;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    top: 65%;
+    border: none;
+    padding: 10px;
+}
+
+.playground {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: aliceblue;
+    font-size: 30px;
+    display: grid;
+    /* display: none; */
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 27% 38% 34%;
+    grid-template-rows: 30% 40% 30%;
+    grid-template-areas: 'backlog header header' 'enemyChest deck playerChest' 'footer footer footer';
+}
+
+.playground .enemyHand {
+    height: 100%;
+    width: 100%;
+    grid-area: header;
+    justify-self: center;
+    align-items: center;
+}
+
+.playground .enemyHand ul {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.playground .enemyHand ul li {
+    position: absolute;
+    top: 10px;
+}
+
+.playground p {
+    position: absolute;
+    top: 10px;
+    left: 1200px;
+}
+
+.playground .backlog {
+    background-color: #fff;
+    height: 182px;
+    width: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5px;
+}
+.playground .backlog p {
+    position: relative;
+    top: 0;
+    left: 0;
+    color: black;
+    display: inline-block;
+    width: 100%;
+    word-wrap: break-word;
+    font-size: 18px;
+}
+.playground .deck {
+    grid-area: deck;
+    position: relative;
+    justify-self: center;
+    align-self: center;
+}
+
+.playground .deck img {
+    display: block;
+}
+
+.playground .deck p {
+    position: absolute;
+    font-size: 40px;
+    color: white;
+    top: 145px;
+    left: 63px;
+}
+
+.playground .enemyChest {
+    position: relative;
+    grid-area: enemyChest;
+    align-self: center;
+}
+
+.playground .enemyChest p {
+    color: red;
+    position: absolute;
+    top: 165px;
+    left: 15px;
+}
+.playground .chest img {
+    width: 200px;
+}
+.playground .playerChest {
+    position: relative;
+    grid-area: playerChest;
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.playground .playerChest p {
+    color: white;
+    top: -79px;
+    left: 30px;
+}
+
+.playground .playerHand {
+    grid-area: footer;
+    height: 100%;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    position: relative;
+}
+
+.playground .playerHand ul {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.playground .playerHand ul li {
+    position: absolute;
+    top: 10px;
+}
+
+.playground .playerHand ul li .card {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 190px;
+    height: 245px;
+    background: white;
+}
+
+.playground .playerHand ul li .card .suitvalue {
+    line-height: 70%;
+    color: black;
+    font-size: 50px;
+    position: absolute;
+    top: -40px;
+    left: 10px;
+}
+
+.playground .playerHand ul li .card .suitBig {
+    position: absolute;
+    top: -110px;
+    left: 45px;
+    text-align: center;
+    color: black;
+    font-size: 150px;
+}
+
+.winner-modal {
+    width: 800px;
+    max-height: 600px;
+    background: #fff;
+    position: absolute;
+    margin: 5% 29%;
+    border-radius: 10px;
+}
+.winner__header {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+.winner__results {
+    margin-bottom: 30px;
+}
+.chests-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: flex-start;
+}
+.chests-list li {
+    width: 20px;
+    padding: 6px;
+}
+.winner__restart {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-items: center;
+    margin-bottom: 60px;
+}
+.winner__restart button {
+    width: 100px;
+    margin: 0 auto;
+    background: rgb(49, 202, 49);
+    color: rgb(83, 23, 139);
+    outline: none;
+}
+
+#not-PC {
+    display: none;
+}
+@media screen and (max-width: 1366px) {
+    #not-PC {
+        display: block;
+        color: red;
+        font-size: 72px;
+        padding-left: 5px;
+    }
+}
+@media (max-width: 1500px) {
+    .playground .chest img {
+        margin-right: -5px;
+    }
+    .playground p {
+        left: 1123px;
+    }
+    .playground .enemyChest p {
+        font-size: 27px;
+    }
+}
+
+@media (max-height: 755px) {
+    .playground .deck img {
+        position: absolute;
+        top: -125px;
+        left: -315px;
+    }
+    .playground .deck p {
+        top: 26px;
+        left: -251px;
+    }
+}
+
+@media (max-height: 600px) {
+    .playground .deck img {
+        width: 210px;
+        top: -100px;
+    }
+    .playground .deck p {
+        top: 26px;
+        left: -251px;
+        font-size: 32px;
+    }
+}
